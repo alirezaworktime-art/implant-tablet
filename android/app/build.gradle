@@ -6,7 +6,7 @@ android {
     applicationId 'ir.yazd.implantplan'
     minSdk 21
     targetSdk 34
-    versionCode 1
+    versionCode 100
     versionName '1.0'
   }
   signingConfigs { debug { enableV1Signing true; enableV2Signing true; enableV3Signing true } }

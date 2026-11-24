@@ -27,8 +27,8 @@ import java.io.FileOutputStream;
 import java.io.OutputStream;
 
 public class MainActivity extends Activity {
-  static final String HOME = "https://alirezaworktime-art.github.io/implant-plan/";
-  static final String HOST = "alirezaworktime-art.github.io";
+  static final String HOME = "https://alavi.itpelc.ir/";
+  static final String HOST = "alavi.itpelc.ir";
   WebView web;
 
   @Override protected void onCreate(Bundle state) {
@@ -50,7 +50,7 @@ public class MainActivity extends Activity {
     web.setWebViewClient(new WebViewClient() {
       @Override public boolean shouldOverrideUrlLoading(WebView v, WebResourceRequest r) {
         Uri u = r.getUrl();
-        if (HOST.equals(u.getHost()) && u.getPath() != null && u.getPath().startsWith("/implant-plan")) return false;
+        if (HOST.equals(u.getHost())) return false;
         try { startActivity(new Intent(Intent.ACTION_VIEW, u)); } catch (Exception e) { }
         return true;
       }

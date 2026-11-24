@@ -15,6 +15,10 @@ Signing uses the GitHub debug key, so installing a new APK may need the old one 
 
 `dist/implant-plan.apk` is the build that the website serves today (`/implant-plan.apk`).
 
-## Note
-`HOME` still points to the GitHub Pages address of the first version (`alirezaworktime-art.github.io/implant-plan/`).
-The main site now runs on the Iran server; check that this address still leads there, or change `HOME`/`HOST` and rebuild.
+## Address
+Version 2.0 opens the main site on the Iran server, `https://alavi.itpelc.ir/` (`HOME` / `HOST` in `MainActivity.java`),
+and keeps every page of that host inside the app (patient link `/p`, intake `/f`, downloads through the bridge).
+
+Version 1.x (built in the old repo `implant-plan`) opened the GitHub Pages copy of the October site
+(`alirezaworktime-art.github.io/implant-plan/`), which talks to the Cloudflare copy, not to the Iran server.
+Tablets with 1.x should install 2.0 (remove 1.x first if Android refuses the update: same package, debug signing).

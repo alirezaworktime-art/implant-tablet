@@ -1,6 +1,6 @@
 # Builds the Android app (a thin WebView shell around the website) and publishes it as a GitHub release.
 # Run it from the Actions tab ("Run workflow"); the APK is then at
-# https://alirezaworktime-art.github.io/implant-plan/implant-plan.apk (served by GitHub Pages, reachable from Iran)
+# the GitHub release of this repo and dist/implant-plan.apk (the website serves the copy that is built into its bundle)
 name: Android app
 on:
   workflow_dispatch:
@@ -8,7 +8,7 @@ on:
       version:
         description: "Version name (e.g. 1.0)"
         required: true
-        default: "1.0"
+        default: "2.0"
 permissions:
   contents: write
 jobs:
@@ -54,7 +54,7 @@ jobs:
               applicationId 'ir.yazd.implantplan'
               minSdk 21
               targetSdk 34
-              versionCode ${{ github.run_number }}
+              versionCode ${{ github.run_number }}00
               versionName '${{ inputs.version }}'
             }
             signingConfigs { debug { enableV1Signing true; enableV2Signing true; enableV3Signing true } }
@@ -113,8 +113,8 @@ jobs:
           import java.io.OutputStream;
 
           public class MainActivity extends Activity {
-            static final String HOME = "https://alirezaworktime-art.github.io/implant-plan/";
-            static final String HOST = "alirezaworktime-art.github.io";
+            static final String HOME = "https://alavi.itpelc.ir/";
+            static final String HOST = "alavi.itpelc.ir";
             WebView web;
 
             @Override protected void onCreate(Bundle state) {
@@ -136,7 +136,7 @@ jobs:
               web.setWebViewClient(new WebViewClient() {
                 @Override public boolean shouldOverrideUrlLoading(WebView v, WebResourceRequest r) {
                   Uri u = r.getUrl();
-                  if (HOST.equals(u.getHost()) && u.getPath() != null && u.getPath().startsWith("/implant-plan")) return false;
+                  if (HOST.equals(u.getHost())) return false;
                   try { startActivity(new Intent(Intent.ACTION_VIEW, u)); } catch (Exception e) { }
                   return true;
                 }
@@ -207,11 +207,11 @@ jobs:
         env:
           GH_TOKEN: ${{ github.token }}
         run: |
-          cp android/app/build/outputs/apk/release/app-release.apk implant-plan.apk
+          mkdir -p dist && cp android/app/build/outputs/apk/release/app-release.apk dist/implant-plan.apk
           TAG="app-v${{ inputs.version }}-${{ github.run_number }}"
           git config user.name "github-actions[bot]"
           git config user.email "41898+github-actions[bot]@users.noreply.github.com"
-          git add implant-plan.apk
+          git add dist/implant-plan.apk
           git commit -m "Android app ${{ inputs.version }} (build ${{ github.run_number }})" || true
           git push
-          gh release create "$TAG" implant-plan.apk --title "اپلیکیشن اندروید ${{ inputs.version }}" --notes "نسخه‌ی اندروید سایت طرح درمان ایمپلنت. فایل implant-plan.apk را دانلود و نصب کنید." --latest
+          gh release create "$TAG" dist/implant-plan.apk --title "اپلیکیشن اندروید ${{ inputs.version }}" --notes "نسخه‌ی اندروید سایت طرح درمان ایمپلنت. فایل implant-plan.apk را دانلود و نصب کنید." --latest
