@@ -1,0 +1,3 @@
+dist/worker.mjs
+secrets/local.mjs
+*.db
