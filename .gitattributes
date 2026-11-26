@@ -1,0 +1,10 @@
+# cc4: keep LF in every checkout (Windows core.autocrlf=true made the working copy CRLF and builds differ from the released bundles)
+* text=auto eol=lf
+*.apk binary
+*.png binary
+*.jpg binary
+*.ico binary
+*.jar binary
+*.zip binary
+*.db binary
+*.pdf binary
