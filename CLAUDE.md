@@ -23,5 +23,5 @@
 - نصب یک‌باره: `npm install`
 - ساخت: `npm run build` (فرانت و تبلت را از پوشه‌های کناری می‌خواند و `dist/worker.mjs` می‌سازد)
 - تست: `npm test` (در PowerShell و Git Bash هر دو کار می‌کند)
-- تست کامل رگرسیون: `npm run test:all` (فقط در Git Bash)
+- تست کامل رگرسیون: `npm run test:all` (PowerShell، cmd، Git Bash و لینوکس؛ نتیجه در patches/reg-all.out؛ روی GitHub: Actions → Full regression)
 - سرور محلی: `npm run dev`
