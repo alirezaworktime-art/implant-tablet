@@ -1,4 +1,4 @@
-# implant-tablet
+# impyar-tablet
 
 Android app for the clinic tablets and phones: a thin **WebView** shell around the implant treatment-plan website.
 Package `ir.yazd.implantplan`, minSdk 21, targetSdk 34, Java, no third-party libraries.
