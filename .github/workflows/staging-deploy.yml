@@ -1,5 +1,5 @@
 # Every push to 'staging' here runs the full staging deploy (https://demo.impyar.ir), defined once in impyar-backend.
-# The server builds from the 'staging' branches of all three repos. Needs secret STAGING_SSH_KEY and the STAGING_* variables here.
+# Uses the workflow from impyar-backend 'staging' (same version as the deploy scripts). The server builds from the 'staging' branches of all three repos. Needs secret STAGING_SSH_KEY and the STAGING_* variables here.
 name: Deploy staging
 on:
   push:
@@ -7,5 +7,5 @@ on:
   workflow_dispatch:
 jobs:
   deploy:
-    uses: alirezaworktime-art/impyar-backend/.github/workflows/staging-deploy.yml@main
+    uses: alirezaworktime-art/impyar-backend/.github/workflows/staging-deploy.yml@staging
     secrets: inherit
