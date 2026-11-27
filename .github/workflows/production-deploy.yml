@@ -1,0 +1,13 @@
+# Every push to 'production' here (= a merge of 'staging' into 'production') runs the full production deploy, defined once
+# in impyar-backend (workflow from its 'production' branch, same version as the deploy scripts). The Yazd server builds
+# from the 'production' branches of all three repos. Needs, in this repo's Environment 'production': secrets PROD_SSH_KEY, CF_API_TOKEN and the PROD_* variables.
+name: Deploy production
+on:
+  push:
+    branches: [production]
+  workflow_dispatch:
+jobs:
+  deploy:
+    if: ${{ github.ref_name == 'production' && !(github.event_name == 'push' && github.event.created) }}
+    uses: alirezaworktime-art/impyar-backend/.github/workflows/production-deploy.yml@production
+    secrets: inherit
