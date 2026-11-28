@@ -12,7 +12,7 @@
 - رمز، کلید و توکن هرگز تایپ، چاپ، کپی یا کامیت نشود. پوشه‌ی `secrets/` فقط محلی است.
 - این مخزن عمومی است: داده‌ی بیمار هرگز در کد، تست، لاگ یا کامیت نرود. قبل از هر push اجرا کن: `node C:\Users\Admin\Desktop\implant-cowork\repos\leak-check.mjs`.
 - حذف، جابه‌جایی یا بازنویسی فایل فقط با اجازه.
-- از ۲۰۲۶-۱۱-۲۷ (تصمیم مالک) برنامه‌نویسی دیگر با وصله نیست: هر تغییر مستقیم در همین مخزن‌ها (صفحه: `impyar-frontend/src/`، بعد `node tools/build.mjs`). انتشار: main → staging (خودکار روی demo.impyar.ir) → PR از staging به production (فقط همین؛ push مستقیم بسته است) → GitHub خودکار روی سرور یزد و Cloudflare منتشر می‌کند (`impyar-backend/ops/production/`، با بکاپ پایگاه، بررسی داده و برگشت خودکار). ادغام به production فقط با تصمیم مالک.
+- از ۲۰۲۶-۱۱-۲۷ (تصمیم مالک) برنامه‌نویسی دیگر با وصله نیست: هر تغییر مستقیم در همین مخزن‌ها (صفحه: `impyar-frontend/src/`، بعد `node tools/build.mjs`). انتشار: main → staging (خودکار روی alavi-stage.itpelc.ir) → PR از staging به production (فقط همین؛ push مستقیم بسته است) → GitHub خودکار روی سرور یزد و Cloudflare منتشر می‌کند (`impyar-backend/ops/production/`، با بکاپ پایگاه، بررسی داده و برگشت خودکار). ادغام به production فقط با تصمیم مالک.
 - بعد از هر تغییر `C:\Users\Admin\Desktop\implant-cowork\claude-code-kit\desktop-backup.ps1` را اجرا کن و مسیر بکاپ را بگو.
 - hani.itpelc.ir فقط خواندنی است. هرگز وارد سایت زنده نشو و رمز تایپ نکن؛ بررسی زنده فقط شمارشی.
 - در سایت‌های impyar.ir مبلغ‌ها هرگز نباید گم شوند. هیچ نقص ظاهری کوچکی پذیرفته نیست.

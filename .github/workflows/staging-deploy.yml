@@ -1,4 +1,4 @@
-# Every push to 'staging' here runs the full staging deploy (https://demo.impyar.ir), defined once in impyar-backend.
+# Every push to 'staging' here runs the full staging deploy (https://alavi-stage.itpelc.ir), defined once in impyar-backend.
 # Uses the workflow from impyar-backend 'staging' (same version as the deploy scripts). The server builds from the 'staging' branches of all three repos. Needs secret STAGING_SSH_KEY and the STAGING_* variables here.
 name: Deploy staging
 on:
